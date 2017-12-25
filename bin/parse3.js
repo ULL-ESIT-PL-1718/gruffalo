@@ -1,14 +1,8 @@
 
 const fs = require('fs')
 
-// const parser = require('../foo.js')
-
-
-
-// let input = fs.readFileSync('test/sample10k.json')
 let input = '(( (1) ))'
 
-// const { grammar, tokenizer } = require('../test/json')
 const gruffalo = require('../gruffalo')
 
 let grammar = new gruffalo.Grammar({ start: 'E' })
@@ -20,9 +14,6 @@ grammar.add(new gruffalo.Rule('_', ['_', ' '])) // TODO we have a null-reduction
 let p = eval(gruffalo.compile(grammar))({})
 
 // states.forEach(state => console.log(state.debug() + '\n'))
-
-// tokenizer.initString(input)
-// let lex = tokenizer.getNextToken.bind(tokenizer)
 
 var index = 0
 function lex() {
